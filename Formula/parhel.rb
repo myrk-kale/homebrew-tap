@@ -1,8 +1,8 @@
 class Parhel < Formula
   desc "Copy-on-write Git worktrees with ignored build output included"
   homepage "https://github.com/myrk-kale/parhel"
-  url "https://github.com/myrk-kale/parhel/releases/download/v0.1.0/parhel-v0.1.0-universal-apple-darwin.tar.gz"
-  sha256 "56a3a3af23636a15d9107f9564d15776415bf5b6ce6131abeb0ab50502f16169"
+  url "https://github.com/myrk-kale/parhel/releases/download/v0.1.1/parhel-v0.1.1-universal-apple-darwin.tar.gz"
+  sha256 "498f4b8916d790a9b00c583b7f5d828ccc222deb0866f24bad1a3d4aa44e6d56"
   license "MIT"
 
   head do
