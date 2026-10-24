@@ -5,14 +5,14 @@ class Parhel < Formula
 
   # Release archives: a universal binary on macOS, static musl binaries on Linux.
   if OS.mac?
-    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.0/parhel-v0.4.0-universal-apple-darwin.tar.gz"
-    sha256 "cdc0affe48b03593b6798000a98944d27a6d906b5a1f53c95661f1c705e9559c"
+    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.1/parhel-v0.4.1-universal-apple-darwin.tar.gz"
+    sha256 "21003047fa5040c7021724d9e61511e8187f6776064fd3705ffee341e8b4cecb"
   elsif Hardware::CPU.arm?
-    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.0/parhel-v0.4.0-aarch64-unknown-linux-musl.tar.gz"
-    sha256 "09d1daf3a55983af206c443edf148ecb86fecd4f23ef2dcc9de04aa5ba6307fe"
+    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.1/parhel-v0.4.1-aarch64-unknown-linux-musl.tar.gz"
+    sha256 "7b7fe15648a45e25bf282bc26d82c9591e97e3c7dc784863a38e9d9ece96c2cc"
   else
-    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.0/parhel-v0.4.0-x86_64-unknown-linux-musl.tar.gz"
-    sha256 "6e6966c79264d756656e24ad10fcbfd5ee1d2c53d3042cbd8ec55620faf357cd"
+    url "https://github.com/myrk-kale/parhel/releases/download/v0.4.1/parhel-v0.4.1-x86_64-unknown-linux-musl.tar.gz"
+    sha256 "75450fd0b9e253f210a727e20f190a4429ccfc1c369876cc8689b7631eee3561"
   end
 
   head do
