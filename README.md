@@ -7,12 +7,13 @@
 
 # myrk-kale/homebrew-tap
 
-Homebrew formulae for [parhel](https://github.com/myrk-kale/parhel), Git worktrees
-created with copy-on-write so your build output comes along.
+Homebrew formulae for the tools of [myrk-kale](https://github.com/myrk-kale).
 
-```sh
-brew install myrk-kale/tap/parhel
-```
+| Formula | What it is | Install |
+| --- | --- | --- |
+| [parhel](https://github.com/myrk-kale/parhel) | Git worktrees created with copy-on-write, so your build output comes along | `brew install myrk-kale/tap/parhel` |
+| [klaub](https://github.com/myrk-kale/klaub) | A terminal code reviewer for the human reading AI-written code | `brew install myrk-kale/tap/klaub` |
 
-The parhel release workflow updates the formula here; there is nothing to edit
-by hand.
+The parhel release workflow updates its formula here. The klaub formula is
+updated with each klaub release (the source is `packaging/homebrew/klaub.rb` in
+the klaub repository).
