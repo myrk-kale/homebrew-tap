@@ -14,6 +14,6 @@ Homebrew formulae for the tools of [myrk-kale](https://github.com/myrk-kale).
 | [parhel](https://github.com/myrk-kale/parhel) | Git worktrees created with copy-on-write, so your build output comes along | `brew install myrk-kale/tap/parhel` |
 | [klaub](https://github.com/myrk-kale/klaub) | A terminal code reviewer for the human reading AI-written code | `brew install myrk-kale/tap/klaub` |
 
-The parhel release workflow updates its formula here. The klaub formula is
-updated with each klaub release (the source is `packaging/homebrew/klaub.rb` in
-the klaub repository).
+The parhel release workflow updates its formula here. The klaub formula is rendered
+by `packaging/render-formula.sh` in the klaub repository, from the checksums of each
+klaub release.
