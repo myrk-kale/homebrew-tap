@@ -7,23 +7,23 @@ class Klaub < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.0/klaub-0.6.0-aarch64-apple-darwin.tar.gz"
-      sha256 "4c870a36251451a4cedbdae0f0fc8ea4de6926853be5f23e633bcfbdb8668780"
+      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.1/klaub-0.6.1-aarch64-apple-darwin.tar.gz"
+      sha256 "d5ba1c335404a202b36a5917b2ce9ef326e450b9f55fc143c49e5ab0d9b3dbe6"
     end
     on_intel do
-      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.0/klaub-0.6.0-x86_64-apple-darwin.tar.gz"
-      sha256 "77e963deb5707c4a42feeb45af6be2e6f783d9b8241a0f516c7716e62308292e"
+      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.1/klaub-0.6.1-x86_64-apple-darwin.tar.gz"
+      sha256 "d64ad53d48c3d37c2bc73738799e140c97f9bf066e4bd99262d07f0e0c4fae01"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.0/klaub-0.6.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "38e2cd86874a22d3a9876d5274c14d1888922843fba98441ec06f13f6242e008"
+      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.1/klaub-0.6.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "e2341f04228c6df9b62a5dbd260ee3c6647f91ca58ba3c553ddd6efa416105d6"
     end
     on_intel do
-      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.0/klaub-0.6.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "eaf5e7b0399414d8d204533e6ce62b8f0ad2400822d714b6133c43f1056df212"
+      url "https://github.com/myrk-kale/klaub/releases/download/v0.6.1/klaub-0.6.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3fcfaa1878853a4234ccfba204a9706472575dbe33935b5c2a6775ad91c05885"
     end
   end
 
@@ -34,6 +34,6 @@ class Klaub < Formula
   end
 
   test do
-    assert_match "klaub 0.6.0", shell_output("#{bin}/klaub version")
+    assert_match "klaub 0.6.1", shell_output("#{bin}/klaub version")
   end
 end
