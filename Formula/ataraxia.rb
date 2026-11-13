@@ -5,14 +5,14 @@ class Ataraxia < Formula
 
   # Release archives: a universal binary on macOS, one binary per architecture on Linux.
   if OS.mac?
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-universal-apple-darwin.tar.gz"
-    sha256 "154524cd04a64c08118df064d18c35072d5367b2a084788c48b7e58451d53373"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.1/ataraxia-v0.1.1-universal-apple-darwin.tar.gz"
+    sha256 "86ea306bb9f413705809ba04b3b6ffbb2871f463877314dca640b3f019efea42"
   elsif Hardware::CPU.arm?
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-aarch64-unknown-linux-gnu.tar.gz"
-    sha256 "ff44809acaf706d7dd7e5812497c9a33265eade86d47fe095832c53b21063e38"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.1/ataraxia-v0.1.1-aarch64-unknown-linux-gnu.tar.gz"
+    sha256 "c9b63e0156c60ac6f967049822c9e92925213c61318698a74f1854fd6764c825"
   else
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "df6cb34dd10ab22491bc2c6125efdd0704d37a42b3b56b22ca22be867a5f734b"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.1/ataraxia-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "1939b0cba0fa9bb88b92982414d1bbd674c9a4910994ac3123181c92612c2372"
   end
 
   def install
@@ -22,8 +22,8 @@ class Ataraxia < Formula
 
   def caveats
     s = <<~EOS
-      `ataraxia` opens the app. Agents start its MCP server with `ataraxia mcp --db <file>`;
-      Settings > MCP server shows the exact command to register.
+      `ataraxia` opens the app. While it runs, the agent of each chat reaches it through a local
+      HTTP API, and is told how, so there is nothing to register.
     EOS
     if OS.linux?
       s += <<~EOS
@@ -37,11 +37,6 @@ class Ataraxia < Formula
   end
 
   test do
-    reply = pipe_output(
-      "#{bin}/ataraxia mcp --db #{testpath}/test.sqlite3",
-      %Q({"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}\n),
-      0,
-    )
-    assert_match "ataraxia", reply
+    assert_match version.to_s, shell_output("#{bin}/ataraxia --version")
   end
 end
