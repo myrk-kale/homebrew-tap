@@ -1,6 +1,6 @@
 cask "ataraxia" do
-  version "0.2.0"
-  sha256 "fe6bac929b7871dafdfe522f9d74360e528b7a41a9a822f6687f1f2b6aeb3503"
+  version "0.3.0"
+  sha256 "a9b682b663fe75c02d7c385092147d2965aa0d7d7293c05681ad5c518964b8e5"
 
   url "https://github.com/myrk-kale/ataraxia/releases/download/v#{version}/ataraxia-v#{version}-universal-apple-darwin.app.tar.gz"
   name "Ataraxia"
