@@ -1,0 +1,47 @@
+class Ataraxia < Formula
+  desc "Desktop environment for agent-assisted software development"
+  homepage "https://github.com/myrk-kale/ataraxia"
+  license "MIT"
+
+  # Release archives: a universal binary on macOS, one binary per architecture on Linux.
+  if OS.mac?
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-universal-apple-darwin.tar.gz"
+    sha256 "154524cd04a64c08118df064d18c35072d5367b2a084788c48b7e58451d53373"
+  elsif Hardware::CPU.arm?
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-aarch64-unknown-linux-gnu.tar.gz"
+    sha256 "ff44809acaf706d7dd7e5812497c9a33265eade86d47fe095832c53b21063e38"
+  else
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.1.0/ataraxia-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "df6cb34dd10ab22491bc2c6125efdd0704d37a42b3b56b22ca22be867a5f734b"
+  end
+
+  def install
+    bin.install "ataraxia"
+    doc.install "README.md", "CHANGELOG.md", "LICENSE"
+  end
+
+  def caveats
+    s = <<~EOS
+      `ataraxia` opens the app. Agents start its MCP server with `ataraxia mcp --db <file>`;
+      Settings > MCP server shows the exact command to register.
+    EOS
+    if OS.linux?
+      s += <<~EOS
+
+        The window needs GTK 3 and WebKitGTK 4.1 from your distribution:
+          Debian, Ubuntu: sudo apt install libwebkit2gtk-4.1-0 libgtk-3-0
+          Fedora:         sudo dnf install webkit2gtk4.1 gtk3
+      EOS
+    end
+    s
+  end
+
+  test do
+    reply = pipe_output(
+      "#{bin}/ataraxia mcp --db #{testpath}/test.sqlite3",
+      %Q({"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}\n),
+      0,
+    )
+    assert_match "ataraxia", reply
+  end
+end
