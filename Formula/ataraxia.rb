@@ -5,14 +5,14 @@ class Ataraxia < Formula
 
   # Release archives: a universal binary on macOS, one binary per architecture on Linux.
   if OS.mac?
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.1/ataraxia-v0.14.1-universal-apple-darwin.tar.gz"
-    sha256 "06612d37ead2c809cfb8538a3c3df04334b6133800bbaaa52f972305aebc798a"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.2/ataraxia-v0.14.2-universal-apple-darwin.tar.gz"
+    sha256 "a0bf2291025274e03496685d60ef1f59c5eaf0b3b40253e222ebfcb5319f592e"
   elsif Hardware::CPU.arm?
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.1/ataraxia-v0.14.1-aarch64-unknown-linux-gnu.tar.gz"
-    sha256 "9fd740914aa6f1497220fd99cf9ad60664e1964a7f70126053e955d7f61dd9a3"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.2/ataraxia-v0.14.2-aarch64-unknown-linux-gnu.tar.gz"
+    sha256 "1dc33da66d0c4d77cb320bbdaf3fbcc2193ac4ea74f21e6fc688d1ba61e03d8e"
   else
-    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.1/ataraxia-v0.14.1-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "c7449dcca2206a0687888217e5ebe7ff0909a994c2b4c4b807faa7cce6071f14"
+    url "https://github.com/myrk-kale/ataraxia/releases/download/v0.14.2/ataraxia-v0.14.2-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "531deeae66f625e59f92c0abae72dd556b42528d87c953698f031b0dfccac2f8"
   end
 
   def install
