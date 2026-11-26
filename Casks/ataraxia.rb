@@ -1,21 +1,21 @@
 cask "ataraxia" do
-  version "0.20.1"
-  sha256 "9b1df60e6a178af345c765fc8088481b4fac53de301f039f722c7ac6b6d8d47f"
+  version "0.20.2"
+  sha256 "b6825abcadeb600b51e6bdd716b9cd0d33ffb8b65935947f31d2dd657ae07bce"
 
   url "https://github.com/myrk-kale/ataraxia/releases/download/v#{version}/ataraxia-v#{version}-universal-apple-darwin.app.tar.gz"
   name "Ataraxia"
   desc "Desktop environment for agent-assisted software development"
   homepage "https://github.com/myrk-kale/ataraxia"
 
-  depends_on macos: ">= :big_sur"
+  # No minimum version: the app needs macOS 11, and Homebrew itself does not run on anything older.
+  depends_on :macos
 
   app "Ataraxia.app"
 
   # The app is not signed with an Apple Developer ID, so macOS would block the first launch of a
   # downloaded app. This tap builds and publishes it, so the quarantine mark is removed from it.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Ataraxia.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Ataraxia.app"]
   end
 
   zap trash: [
